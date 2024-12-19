@@ -4,6 +4,14 @@
     height: 100%;
     z-index: 1000;
     position: fixed;
+    /*
+     Can I use position fixed without relative?
+
+    Yes, you can use position: fixed without using position: relative
+    Takes the element out of the normal document flow.
+    Positions the element relative to the browser window, ignoring other elements on the page.
+     */
+
     left: 0;
     top: 0;
     background: var(--clr-modal-backdrop);
