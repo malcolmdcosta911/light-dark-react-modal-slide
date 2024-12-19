@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+ES+Deco+Guides&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Open developer tools (F12)
+Click the ellipsis ... icon at the upper right of the tools
+Click More Tools -> Rendering
+Under "Emulate CSS Media" select "prefers-color-scheme: dark" */
+
+
+/* @media (prefers-color-scheme: light) { */
+
+:root {
+  ---font-size-sm: 1.3rem;
+  ---font-size-xxl: 5rem;
+
+  --clr-light: rgba(255, 0, 22, 1);
+  --clr-dark: rgba(121, 9, 9, 1) 100%;
+  --clr-primary: #FFFDD0;
+  --clr-secondary: rgb(255, 0, 22);
+  --clr-accent: rgb(239, 205, 211);
+  --clr-text-primary: #FFFDD0;
+  --clr-text-secondary: black;
+  --clr-modal-backdrop: rgba(17, 6, 65, 0.8);
+}
+
+.dark-mode {
+  ---font-size-sm: 1.3rem;
+  ---font-size-xxl: 5rem;
+
+  --clr-light: rgb(59, 40, 93);
+  --clr-dark: rgba(121, 9, 9, 1);
+  --clr-primary: #b9b34d;
+  --clr-secondary: rgb(138, 16, 26);
+  --clr-accent: rgb(239, 205, 211);
+  --clr-text-primary: #c9c57c;
+  --clr-text-secondary: black;
+
+}
+
+.modal-setting {
+  background: #c9c57c;
+  border-radius: 8px;
+}
+
+/* } */
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --clr-light: rgb(13, 255, 0);
+  }
+} */
+
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 75px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-primary) var(--clr-light);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: var(---font-size-sm);
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
+  color-scheme: light dark;
+  color: var(--clr-text-secondary);
+
+}
+
+.nav {
+  background: var(--clr-primary);
+  padding: .5rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  height: 75px;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
+button {
+  font-size: var(---font-size-sm);
+  border: 1px solid gray;
+  cursor: pointer;
+  background: var(--clr-light);
+  border-radius: 5px;
+  /* text-align: center; */
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-text-primary);
+  transition: all ease-in-out 300ms;
+
+  outline: 0;
+  /* readd aria focus visible if removed */
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+button:focus-visible {
+  /* focus visble for aria */
+  border: 2px solid white;
+}
+
+.hero {
+  background: var(--clr-secondary);
+  background: linear-gradient(90deg, var(--clr-light) 2%, var(--clr-dark) 100%);
+  min-height: 70vh;
+  display: grid;
+  grid-template-columns: minmax(50vw, 600px) minmax(30vw, 2fr);
+
+}
+
+.hero__text-content {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: var(---font-size-xxl);
+  color: var(--clr-text-primary);
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px
+}
+
+.hero__subtitle {
+  color: var(--clr-text-primary);
+  opacity: .8;
+}
+
+.hero__image {
+  width: 100%;
+  /* aspect-ratio: 4 / 3.4; */
+  aspect-ratio: 4 / 3;
+
+  /* display: none; */
+  /* image height causes scroll snap issues */
+}
+
+.info--section,
+.info--section--two {
+  padding: 2rem;
+  min-height: 80vh;
+  background-color: var(--clr-primary);
+}
+
+.info--section p,
+.info--section--two {
+  margin: 0;
+  line-height: 1.3;
+}
+
+.info--section--two {
+  /* color-scheme: only light; */
+  background: var(--clr-secondary);
+  color: var(--clr-text-primary);
+}
+
+
+
+/* modal Starts */
+
+.rewrewrewr-modal {
+  border: 0;
+  display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 300ms, transform 300ms;
+  inset: 0;
+  /* z-index: 1000; */
+  /* min-height: 900px; */
+  /* overflow: auto; */
+  /* overflow: hidden; */
+}
+
+.rewrewrewr-modal[open] {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.rewrewrewr-modal:not([open]) {
+  pointer-events: none;
+}
+
+
+.rewrewrewr-modal::backdrop {
+  background: var(--clr-modal-backdrop);
+}
+
+/* modal ends */
