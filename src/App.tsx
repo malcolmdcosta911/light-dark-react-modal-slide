@@ -3,13 +3,25 @@ import mistletoe from "./assets/mistletoe.png";
 import Modal from "./common/Modal";
 import SlideIn from "./common/SlideIn";
 import MenuSlide from "./slides/MenuSlide";
+import { useTranslation } from "react-i18next";
+
 // import viteLogo from "/vite.svg";
 // import "./App.css";
+
+// import i18n (needs to be bundled ;))
+// https://dev.to/adrai/how-to-properly-internationalize-a-react-application-using-i18next-3hdb
+import "./i18n.ts";
+// import i18n from "./i18n.ts";
+
+
+// return <div style={{ "--my-css-var": 10 } as React.CSSProperties} />
+
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false); //no need initial func
   const [showModal, setShowModal] = useState(false);
   const [openSlide, setOpenSlide] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -104,11 +116,8 @@ function App() {
           <section>
             <div className="hero">
               <div className="hero__text-content">
-                <h1 className="hero__title">Merry Christmas</h1>
-                <p className="hero__subtitle">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Error, explicabo.
-                </p>
+                <h1 className="hero__title">{t("hero.title")}</h1>
+                <p className="hero__subtitle">{t("hero.subtitle")}</p>
               </div>
 
               <img
@@ -120,60 +129,12 @@ function App() {
           </section>
           <section>
             <div className="info--section">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem facilis ab rerum inventore qui ipsam. Officiis
-                blanditiis numquam, non sint vel itaque possimus expedita a
-                distinctio nostrum, dicta nesciunt tenetur?Lorem ipsum dolor,
-                sit amet consectetur adipisicing elit. Voluptate delectus natus
-                hic id, ipsa dignissimos, officiis, reprehenderit eveniet
-                voluptatibus totam rem adipisci magni dolorem tempore corrupti
-                dicta quo eius ipsum minus accusamus accusantium dolores. Quidem
-                voluptatem tempora dignissimos et ex! Lorem ipsum dolor sit amet
-                consectetur, adipisicing elit. Eos iusto odit, modi, dolorum,
-                nulla dolore eligendi architecto excepturi voluptatum numquam
-                voluptates accusamus sunt sint asperiores. Sed vel a error
-                quisquam nihil tempore sunt veniam nam maiores laboriosam ut,
-                laudantium vitae eum id mollitia sit neque. Ex laboriosam
-                nesciunt, aperiam neque ad temporibus commodi incidunt facere id
-                iste dolore veniam, nostrum explicabo, corrupti minus velit
-                voluptates! Accusamus, nostrum laboriosam iusto consequatur
-                veniam itaque consectetur qui non officiis harum eveniet, rerum
-                esse exercitationem accusantium, voluptatum nisi dicta nihil.
-                Totam molestiae, deleniti ipsum tenetur commodi sint cum omnis
-                quibusdam assumenda? Recusandae, ducimus facere.
-              </p>
+              <p>{t("section1.p")}</p>
             </div>
           </section>
           <section>
             <div className="info--section--two">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-                recusandae aut earum consectetur. Cum repellendus voluptatibus
-                numquam animi excepturi dolorem maiores sint, magni, enim, aut
-                eveniet perspiciatis perferendis eligendi rem molestias rerum
-                vitae ipsum! Quaerat omnis facilis fugit sequi totam assumenda
-                vitae provident dolores recusandae porro delectus, ipsa natus
-                placeat. Nisi ipsam magni ut doloremque tempore labore magnam,
-                modi quos iste mollitia nulla? Tempore similique dolorum minima
-                repudiandae, rerum voluptas obcaecati harum dolores nostrum
-                explicabo dolor magnam suscipit, corrupti ex voluptatibus
-                aperiam aliquam? Rerum corporis veritatis explicabo
-                consequuntur, dolorum, aliquam perferendis libero vero ipsam vel
-                non. Iure, autem? Doloremque natus amet eligendi molestias
-                voluptatem placeat dignissimos dolorum veritatis obcaecati
-                recusandae iste provident voluptate, impedit quaerat qui, nisi
-                iusto! Magnam, illum? Alias laboriosam nulla ullam deserunt.
-                Recusandae labore fuga dolore? Voluptates id incidunt velit
-                deserunt, distinctio quos eum et libero hic? Vitae officia
-                deserunt similique ipsum? Veniam hic sit est nobis qui enim
-                nihil dicta quis repellendus, dolore voluptatibus ullam alias
-                dolores blanditiis amet quaerat. Numquam, iure! Similique totam
-                sit temporibus sunt quaerat in pariatur, mollitia dicta maiores,
-                eaque id ex consectetur corporis amet. Repellat quasi quibusdam
-                nemo, soluta perspiciatis odit odio harum, voluptatum adipisci
-                est quis vero sint quod rem!
-              </p>
+              <p>{t("section2.p")}</p>
             </div>
           </section>
         </div>

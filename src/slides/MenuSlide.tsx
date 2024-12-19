@@ -1,4 +1,14 @@
 import styles from "./MenuSlide.module.css";
+import i18n from "../i18n.ts";
+
+type SinglePropertyObject<T extends string> = {
+  [K in T]: string;
+};
+
+const lngs: Record<string, SinglePropertyObject<"nativeName">> = {
+  en: { nativeName: "English" },
+  fr: { nativeName: "French" },
+};
 
 const MenuSlide = ({
   setOpen,
@@ -12,7 +22,7 @@ const MenuSlide = ({
       <div className={styles.closeBtn}>
         <button onClick={() => setOpen(false)}>close</button>
       </div>
-      <button onClick={handleFunc} style={{marginTop:50}}>
+      <button onClick={handleFunc} style={{ marginTop: 50 }}>
         <svg
           fill="white"
           height="30px"
@@ -86,6 +96,23 @@ const MenuSlide = ({
 
         <div style={{ marginLeft: 10 }}>Toggle theme</div>
       </button>
+      {Object.keys(lngs).map((lng) => (
+        <button
+          key={lng}
+          style={{
+            fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
+            background:
+              i18n.resolvedLanguage === lng
+                ? "var( --clr-dark)"
+                : "var(--clr-light)",
+            marginTop: 20,
+          }}
+          type="submit"
+          onClick={() => i18n.changeLanguage(lng)}
+        >
+          {lngs[lng].nativeName}{" "}
+        </button>
+      ))}
     </div>
   );
 };
