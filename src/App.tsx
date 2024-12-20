@@ -11,11 +11,10 @@ import { useTranslation } from "react-i18next";
 // import i18n (needs to be bundled ;))
 // https://dev.to/adrai/how-to-properly-internationalize-a-react-application-using-i18next-3hdb
 import "./i18n.ts";
+import CopyButton from "./common/Copy.tsx";
 // import i18n from "./i18n.ts";
 
-
 // return <div style={{ "--my-css-var": 10 } as React.CSSProperties} />
-
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false); //no need initial func
@@ -129,12 +128,24 @@ function App() {
           </section>
           <section>
             <div className="info--section">
-              <p>{t("section1.p")}</p>
+              <p id="section1Content">{t("section1.p")}</p>
+              <div className="flex--end {">
+                <CopyButton selectedId="section1Content" />
+              </div>
             </div>
           </section>
           <section>
             <div className="info--section--two">
-              <p>{t("section2.p")}</p>
+              <p id="section2Content">{t("section2.p")}</p>
+              <div className="flex--end {">
+                <CopyButton
+                  selectedId="section2Content"
+                  style={{
+                    background: "var( --clr-primary)",
+                    // color: "var(--clr-text-secondary)",
+                  }}
+                />
+              </div>
             </div>
           </section>
         </div>

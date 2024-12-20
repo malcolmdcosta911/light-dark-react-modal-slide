@@ -124,6 +124,30 @@ button:focus-visible {
   border: 2px solid white;
 }
 
+button.copy-btn {
+  color: var(--clr-text-secondary);
+}
+
+.copy-btn:disabled {
+  background: var(--clr-dark);
+  /* color: var(--clr-text-secondary); */
+  cursor: not-allowed;
+}
+
+.copy-btn__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* color: var(--clr-text-primary); */
+}
+
+.flex--end {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+
 .hero {
   background: var(--clr-secondary);
   background: linear-gradient(90deg, var(--clr-light) 2%, var(--clr-dark) 100%);
